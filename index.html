@@ -8,7 +8,6 @@
     <title>CodeForge</title>
 </head>
 <body>
-    <div class="hero">
         <div class="nav">
             <nav>
                 <div class="logo">
@@ -33,7 +32,7 @@
                 </div>
             </nav>
         </div>
-
+    <div class="hero">
         <div class="h-content">
             <div class="pic">
                 <img src="./images/20260416_173014.jpg" alt="Rehoboth Ajose profile photo">
@@ -98,12 +97,15 @@
             <div class="grid">
                 <div class="proj-card">
                     <a href="https://nearuni.xyz"><img src="./images/pj1.JPG" alt="Project 1"></a>
+                    <p>Nearuni</p>
                 </div>
                 <div class="proj-card">
                     <a href="https://homesassistservices.co.uk"><img src="./images/pj3.JPG" alt="Project 2"></a>
+                    <p>Homes Assist Services</p>
                 </div>
                 <div class="proj-card">
                    <a href="https://cgefmi.vercel.app"><img src="./images/pj2.JPG" alt="Project 3"></a>
+                   <p>Cgefmi</p>
                 </div>
             </div>
         </div>
@@ -111,7 +113,7 @@
 
     <section id="contact" class="section">
         <div class="inner inner--narrow">
-            <h2 class="sec-title">Contact Me</h2>
+            <h2 class="sec-title">Get In Touch</h2>
             <div class="contact-form">
                 <div class="input-group">
                     <input type="text" id="fname" placeholder="Your Name" required>
@@ -122,7 +124,7 @@
                 <div class="input-group">
                     <textarea id="fmsg" placeholder="Your Message" rows="5" required></textarea>
                 </div>
-                <button class="send-btn" onclick="handleSubmit()">Send Message</button>
+                <button class="send-btn">Send Message</button>
                 <div class="success-msg" id="successMsg">Message sent! I'll get back to you soon.</div>
             </div>
         </div>
@@ -140,34 +142,6 @@
                 if (target) target.scrollIntoView({ behavior: 'smooth' });
             });
         });
-
-        function handleSubmit() {
-            const name = document.getElementById('fname').value.trim();
-            const email = document.getElementById('femail').value.trim();
-            const msg = document.getElementById('fmsg').value.trim();
-
-            if (!name || !email || !msg) {
-                alert('Please fill in all fields.');
-                return;
-            }
-
-            const btn = document.querySelector('.send-btn');
-            btn.textContent = 'Sending...';
-            btn.disabled = true;
-
-            setTimeout(() => {
-                btn.textContent = 'Sent!';
-                document.getElementById('successMsg').style.display = 'block';
-                document.getElementById('fname').value = '';
-                document.getElementById('femail').value = '';
-                document.getElementById('fmsg').value = '';
-                setTimeout(() => {
-                    btn.textContent = 'Send Message';
-                    btn.disabled = false;
-                    document.getElementById('successMsg').style.display = 'none';
-                }, 4000);
-            }, 1200);
-        }
     </script>
 </body>
 </html>
