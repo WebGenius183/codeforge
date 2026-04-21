@@ -112,23 +112,26 @@
     </section>
 
     <section id="contact" class="section">
-        <div class="inner inner--narrow">
-            <h2 class="sec-title">Get In Touch</h2>
-            <div class="contact-form">
-                <div class="input-group">
-                    <input type="text" id="fname" placeholder="Your Name" required>
-                </div>
-                <div class="input-group">
-                    <input type="email" id="femail" placeholder="Your Email" required>
-                </div>
-                <div class="input-group">
-                    <textarea id="fmsg" placeholder="Your Message" rows="5" required></textarea>
-                </div>
-                <button class="send-btn">Send Message</button>
-                <div class="success-msg" id="successMsg">Message sent! I'll get back to you soon.</div>
+    <div class="inner inner--narrow">
+        <h2 class="sec-title">Get In Touch</h2>
+        <div class="contact-form">
+            <div class="input-group">
+                <input type="text" id="fname" placeholder="Your Name" required>
+            </div>
+            <div class="input-group">
+                <input type="email" id="femail" placeholder="Your Email" required>
+            </div>
+            <div class="input-group">
+                <textarea id="fmsg" placeholder="Your Message" rows="5" required></textarea>
+            </div>
+            <button class="send-btn" onclick="sendToWhatsApp()">Send Message</button>
+            <div class="success-msg" id="successMsg" style="display:none;">
+                Message sent! I'll get back to you soon.
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
 
     <footer>
         <p>Built by <a href="https://github.com/webgenius183" target="_blank">Rehoboth Ajose</a> &middot; CodeForge &copy; 2026</p>
@@ -142,6 +145,25 @@
                 if (target) target.scrollIntoView({ behavior: 'smooth' });
             });
         });
+
+        function sendToWhatsApp() {
+            const name    = document.getElementById("fname").value.trim();
+            const email   = document.getElementById("femail").value.trim();
+            const message = document.getElementById("fmsg").value.trim();
+    
+            if (!name || !email || !message) {
+                alert("Please fill in all fields.");
+                return;
+            }
+    
+            const text = `Hi! New message from your portfolio 👋\n\n👤 Name: ${name}\n📧 Email: ${email}\n💬 Message: ${message}`;
+            window.open(`https://wa.me/2349155172494?text=${encodeURIComponent(text)}`, "_blank");
+    
+            document.getElementById("fname").value  = "";
+            document.getElementById("femail").value = "";
+            document.getElementById("fmsg").value   = "";
+            document.getElementById("successMsg").style.display = "block";
+        }
     </script>
 </body>
 </html>
