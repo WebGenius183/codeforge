@@ -62,6 +62,7 @@ nav:hover {
     flex-wrap: wrap;
     align-items: center;
     gap: 4px;
+    justify-content: center;
 }
 
 .menu li a {
